@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <h3>SQL Sorgu Çalıştır</h3>
+  <% if (typeof error !== 'undefined') { %>
+    <div class="alert alert-danger"><%= error %></div>
+  <% } %>
+  <form method="POST" action="/sql">
+    <div class="mb-3">
+      <textarea class="form-control" name="query" rows="3" required><%= typeof query !== 'undefined' ? query : '' %></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Çalıştır</button>
+  </form>
+  <% if (typeof result !== 'undefined') { %>
+    <h5 class="mt-4">Sonuç:</h5>
+    <pre><%= JSON.stringify(result, null, 2) %></pre>
+  <% } %>
+</div>
